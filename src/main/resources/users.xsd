@@ -1,0 +1,54 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+          <xs:element name="getAllUserRequest">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+             </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+
+       <xs:element name="getAllUserResponse">
+       <xs:complexType>
+          <xs:sequence>
+            <xs:element name="users" type="tns:usersArray" maxOccurs="unbounded"/>
+         </xs:sequence>
+</xs:complexType>
+
+</xs:element>
+
+     <xs:complexType name="usersArray">
+          <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="id" type="xs:int"/>
+         </xs:sequence>
+     </xs:complexType>
+
+
+
+
+      <xs:element name="getUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="tns:responseUser"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="responseUser">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="response" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
